@@ -3,22 +3,22 @@ name: Python CI
 on:
   push:
     branches: [main]
-  pull_request: # Додано також для pull_request як у прикладі [cite: 32]
+  pull_request:
     branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3 [cite: 17, 32, 56]
+      - uses: actions/checkout@v3
       - name: Set up Python
-        uses: actions/setup-python@v4 [cite: 17, 33, 57]
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.10' [cite: 17, 33, 57]
+          python-version: '3.10'
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip [cite: 17, 34, 58]
-          pip install -r requirements.txt [cite: 17, 34, 58]
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
       - name: Run tests
         run: |
-          pytest [cite: 17, 35, 59, 61]
+          pytest
